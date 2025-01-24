@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Төлөм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBack()">← Артка</button>
+        <img src="img/logo.jpg" alt="Logo" class="logo">
+        <h2>Төлөм</h2>
+        <p>Тандалган курсуңуз үчүн төлөм жүргүзүңүз:</p>
+        <p>Курс: <span id="courseName"></span></p>
+        <p>Окуучу: <span id="studentName"></span></p>
+        <p>Телефон номери: <span id="phoneNumber"></span></p>
+        <button class="btn" onclick="pay()">Төлөм</button>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                course: params.get('course'),
+                firstName: params.get('firstName'),
+                lastName: params.get('lastName'),
+                phoneNumber: params.get('phoneNumber')
+            };
+        }
+
+        function getCourseName(course) {
+            const courseNames = {
+                course1: "Корей тили",
+                course2: "Англис тили",
+                course3: "Орус тили"
+            };
+            return courseNames[course] || course;
+        }
+
+        function pay() {
+            const { course, firstName, lastName, phoneNumber } = getQueryParams();
+            // Здесь будет ваш QR-код или ссылка на оплату
+            alert(`Redirecting to payment for course ${course}`);
+        }
+
+        window.onload = () => {
+            const { course, firstName, lastName, phoneNumber } = getQueryParams();
+            const courseName = getCourseName(course);
+            document.getElementById('courseName').innerText = courseName;
+            document.getElementById('studentName').innerText = `${firstName} ${lastName}`;
+            document.getElementById('phoneNumber').innerText = phoneNumber;
+        };
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
