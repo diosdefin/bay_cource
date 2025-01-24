@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kerek Center</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <img src="img/logo.jpg" alt="Logo" class="logo">
@@ -80,9 +82,11 @@
             if (course && firstName && lastName && phoneNumber) {
                 window.location.href = `payment.html?course=${course}&firstName=${firstName}&lastName=${lastName}&phoneNumber=${phoneNumber}`;
             } else {
-                alert('Please fill in all fields');
+                alert('Баардык маалыматты толтуруңуз');
             }
         }
     </script>
+
 </body>
+
 </html>
